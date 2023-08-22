@@ -1,0 +1,17 @@
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="12345",
+  database="escuela_db"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT escuelas.id,escuelas.nombre ,alumnos.nombre FROM escuelas INNER JOIN alumnos ON escuelas.id=alumnos.id_escuela")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
