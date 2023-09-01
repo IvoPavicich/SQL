@@ -50,10 +50,10 @@ SELECT * FROM escuelas;
 
 /*25) Obtener la capacidad total de las escuelas de la provincia de Buenos Aires */
 SELECT SUM(capacidad) AS 'Capacidad Total ("Buenos Aires")' FROM escuelas
-WHERE provincia='Buenos Aires'; 
+WHERE provincia='Buenos Aires';/*LIKE*/ 
 /*26) Repetir el ejercicio anterior pero solamente con las escuelas de Córdoba y Jujuy.*/
 SELECT SUM(capacidad) AS 'Capacidad Total (Córdoba y Jujuy)' FROM escuelas
-WHERE provincia IN ('Córdoba', 'Jujuy');
+WHERE provincia IN ('Córdoba', 'Jujuy');/*OR*/
 
 /*27) Obtener el promedio de notas de los alumnos aprobados con más de 7.*/
 SELECT ROUND(AVG(nota),1) FROM alumnos
@@ -69,7 +69,7 @@ GROUP BY provincia
 ORDER BY provincia ASC;
 
 /*30) Obtener la cantidad de alumnos por grado.*/
-SELECT COUNT(grado) AS 'Alumnos por Grado'
+SELECT grado ,COUNT(grado) AS 'Alumnos por Grado'
 FROM alumnos
 GROUP BY grado
 ORDER BY grado ASC;
